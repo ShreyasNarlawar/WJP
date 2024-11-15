@@ -41,9 +41,9 @@ public class TestCreateStatement {
 			for(int i=1;i<=total;i++) {
 				System.out.println("Enter Product Id :");
 				int id=sc.nextInt();
-				sc.next();
+				sc.nextLine();
 				System.out.println("Enter Product Description :");
-				String Pdesc=sc.next();
+				String Pdesc=sc.nextLine();
 				System.out.println("Enter Product Price :");
 				double price=sc.nextDouble();
 				
