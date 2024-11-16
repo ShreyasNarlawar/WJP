@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+    <style>
+      .error-text {
+        color: red;
+      }
+    </style>
+</head>
+  <body>
+    <form action="Welcome.html" onsubmit="return validate()">
+      <input
+        type="text"
+        placeholder="enter name"
+        id="name"
+        onkeyup="validateName()"
+      />
+      <span id="nameerror" class="error-text"></span>
+      <br /><br />
+      <input
+        type="email"
+        placeholder="enter email"
+        id="email"
+        onkeyup="validateEmail()"
+      />
+      <span id="emailerror" class="error-text"></span>
+      <br /><br />
+      <input
+        type="date"
+        placeholder="enter Date of Birth"
+        id="dob"
+        onkeyup="validateDOB()"
+      />
+      <span id="doberror" class="error-text"></span>
+      <br /><br />
+      <input
+        type="number"
+        placeholder="enter phone number"
+        id="number"
+        onkeyup="validateNumber()"
+      />
+      <span id="numbererror" class="error-text"></span>
+      <br /><br />
+      <input
+        type="text"
+        placeholder="enter address"
+        id="address"
+        onkeyup="validateAddress()"
+      />
+      <span id="addresserror" class="error-text"></span>
+      <br /><br />
+      <input
+        type="number"
+        placeholder="enter pincode"
+        id="pincode"
+        onkeyup="validatePincode()"
+      />
+      <span id="pincodeerror" class="error-text"></span>
+      <br /><br />
+      <input
+        type="text"
+        placeholder="enter password"
+        id="password"
+        onkeyup="validatePassword()"
+      />
+      <span id="passworderror" class="error-text"></span>
+      <br /><br />
+      <input type="submit" value="Register" />
+    </form>
+
+    <script>
+      function validate() {
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const dob = document.getElementById("dob").value;
+        const number = document.getElementById("number").value;
+        const address = document.getElementById("address").value;
+        const pincode = document.getElementById("pincode").value;
+        const password = document.getElementById("password").value;
+
+        let isValid = true;
+
+        if (name.length === 0) {
+          document.getElementById("nameerror").innerHTML = "Name is required";
+          isValid = false;
+        } else {
+          document.getElementById("nameerror").innerHTML = "";
+        }
+
+        if (email.length === 0) {
+          document.getElementById("emailerror").innerHTML = "Email is required";
+          isValid = false;
+        } else {
+          document.getElementById("emailerror").innerHTML = "";
+        }
+
+        if (dob === "") {
+          document.getElementById("doberror").innerHTML =
+            "Select Date of Birth";
+          isValid = false;
+        } else {
+          document.getElementById("doberror").innerHTML = "";
+        }
+
+        if (number.length === 0) {
+          document.getElementById("numbererror").innerHTML =
+            "Contact Number is required";
+          isValid = false;
+        } else if (number.length !== 10) {
+          document.getElementById("numbererror").innerHTML =
+            "Contact number must be 10 digits";
+          isValid = false;
+        } else {
+          document.getElementById("numbererror").innerHTML = "";
+        }
+
+        if (address.length === 0) {
+          document.getElementById("addresserror").innerHTML =
+            "Address is required";
+          isValid = false;
+        } else {
+          document.getElementById("addresserror").innerHTML = "";
+        }
+
+        if (pincode.length === 0) {
+          document.getElementById("pincodeerror").innerHTML =
+            "Pincode is required";
+          isValid = false;
+        } else if (pincode.length !== 6) {
+          document.getElementById("pincodeerror").innerHTML =
+            "Pincode must be 6 digits";
+          isValid = false;
+        } else {
+          document.getElementById("pincodeerror").innerHTML = "";
+        }
+
+        if (password.length === 0) {
+          document.getElementById("passworderror").innerHTML =
+            "Password is required";
+          isValid = false;
+        } else {
+          document.getElementById("passworderror").innerHTML = "";
+        }
+
+        return isValid;
+      }
+
+      function validateName() {
+        const name = document.getElementById("name").value;
+        if (name.length === 0) {
+          document.getElementById("nameerror").innerHTML = "Name is required";
+        } else {
+          document.getElementById("nameerror").innerHTML = "";
+        }
+      }
+
+      function validateEmail() {
+        const email = document.getElementById("email").value;
+        if (email.length === 0) {
+          document.getElementById("emailerror").innerHTML = "Email is required";
+        } else {
+          document.getElementById("emailerror").innerHTML = "";
+        }
+      }
+
+      function validateDOB() {
+        const dob = document.getElementById("dob").value;
+        if (dob === "") {
+          document.getElementById("doberror").innerHTML =
+            "Select Date of Birth";
+        } else {
+          document.getElementById("doberror").innerHTML = "";
+        }
+      }
+
+      function validateNumber() {
+        const number = document.getElementById("number").value;
+        if (number.length === 0) {
+          document.getElementById("numbererror").innerHTML =
+            "Contact Number is required";
+        } else if (number.length !== 10) {
+          document.getElementById("numbererror").innerHTML =
+            "Contact number must be 10 digits";
+        } else {
+          document.getElementById("numbererror").innerHTML = "";
+        }
+      }
+
+      function validateAddress() {
+        const address = document.getElementById("address").value;
+        if (address.length === 0) {
+          document.getElementById("addresserror").innerHTML =
+            "Address is required";
+        } else {
+          document.getElementById("addresserror").innerHTML = "";
+        }
+      }
+
+      function validatePincode() {
+        const pincode = document.getElementById("pincode").value;
+        if (pincode.length === 0) {
+          document.getElementById("pincodeerror").innerHTML =
+            "Pincode is required";
+        } else if (pincode.length !== 6) {
+          document.getElementById("pincodeerror").innerHTML =
+            "Pincode must be 6 digits";
+        } else {
+          document.getElementById("pincodeerror").innerHTML = "";
+        }
+      }
+
+      function validatePassword() {
+        const password = document.getElementById("password").value;
+        if (password.length === 0) {
+          document.getElementById("passworderror").innerHTML =
+            "Password is required";
+        } else {
+          document.getElementById("passworderror").innerHTML = "";
+        }
+      }
+    </script>
+  </body>
+</html>
