@@ -8,15 +8,15 @@ public interface ProductDao {
 
 	boolean save(Product P);
 
-	boolean delete(int id);
+	boolean delete(int prodid);
 
 	boolean updateDetails(Product p);
 
 	List<Product> showProducts();
 
-	Product searchProduct(int id);
+	Product searchProduct(int prodid);
 
-	List<Product> sortByName(String pname);
+	List<Product> sortByName(String descrip);
 
 	void closeMyConnection();
 

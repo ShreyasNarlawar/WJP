@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .registration-container {
+            width: 400px;
+            padding: 20px;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .logo {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="registration-container">
+    <img src="https://images.pexels.com/photos/6230977/pexels-photo-6230977.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Logo" class="logo">
+    <h2 class="text-center">Register</h2>
+    <form method="post" action="register" id="registrationForm" onsubmit="return validateForm()">
+        <div class="form-group">
+            <label for="fname">First Name:</label>
+            <input type="text" class="form-control" name="fname" id="fname" placeholder="Enter first name" required>
+        </div>
+        <div class="form-group">
+            <label for="lname">Last Name:</label>
+            <input type="text" class="form-control" name="lname" id="lname" placeholder="Enter last name" required>
+        </div>
+        <div class="form-group">
+            <label for="pwd">Password:</label>
+            <input type="password" class="form-control" name="password" id="pwd" placeholder="Enter password" required>
+        </div>
+        <div class="form-group">
+            <label>Gender:</label><br>
+            <input type="radio" name="gender" value="male" id="male" required> <label for="male">Male</label>
+            <input type="radio" name="gender" value="female" id="female"> <label for="female">Female</label>
+        </div>
+        <div class="form-group">
+            <label>Skills:</label><br>
+            <input type="checkbox" name="skills" value="CPP" id="cpp"><label for="cpp"> CPP</label>
+            <input type="checkbox" name="skills" value="Java" id="java"><label for="java"> JAVA</label>
+            <input type="checkbox" name="skills" value="SpringBoot" id="SpringBoot"><label for="SpringBoot"> SpringBoot</label>
+            <input type="checkbox" name="skills" value="React" id="react"><label for="react"> React</label>
+            <input type="checkbox" name="skills" value="C" id="c"><label for="c"> C</label>
+            <input type="checkbox" name="skills" value="C#" id="c#"><label for="c#"> C#</label>
+        </div>
+        <div class="form-group">
+            <label>Degree:</label><br>
+            <input type="radio" name="degree" value="BE" id="be" required> <label for="be">B.E.</label>
+            <input type="radio" name="degree" value="ME" id="me"> <label for="me">M.E.</label>
+            <input type="radio" name="degree" value="BTech" id="btech"> <label for="btech">B.Tech</label>
+            <input type="radio" name="degree" value="MTech" id="mtech"> <label for="mtech">M.Tech</label>
+        </div>
+        <div class="form-group">
+            <label for="city">City:</label>
+            <select name="city" id="city" class="form-control" required>
+                <option value="select">--Select--</option>
+                <option value="Pune">Pune</option>
+                <option value="Mumbai ">Mumbai</option>
+                <option value="Chh.Sambhajinagar">Chh.Sambhajinagar</option>
+                <option value="Delhi">Delhi</option>
+                <option value="Bengaluru">Bengaluru</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block" id="btn" value="register">Register</button>
+    </form>
+</div>
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+    function validateForm() {
+        const fname = document.getElementById('fname').value;
+        const lname = document.getElementById('lname').value;
+        const pwd = document.getElementById('pwd').value;
+        if (!fname || !lname || !pwd) {
+            alert("Please fill out all required fields.");
+            return false;
+        }
+        return true;
+    }
+</script>
+
+</body>
+</html>

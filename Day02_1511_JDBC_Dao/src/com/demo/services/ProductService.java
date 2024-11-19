@@ -8,7 +8,7 @@ public interface ProductService {
 
 	boolean addNewProduct();
 
-	boolean deleteProduct(int id);
+	boolean deleteProduct(int prodid);
 
 	boolean updateProduct();
 

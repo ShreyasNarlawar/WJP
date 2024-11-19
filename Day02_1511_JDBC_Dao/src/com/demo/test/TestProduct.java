@@ -26,16 +26,15 @@ public class TestProduct {
 	  
 	 ProductService pserv = new ProductServiceImpl();
 	  int ch = 0;
-	  if(user != null && user.getRole().equals("shreyas")) {
+	  if(user != null && user.getPasswd().equals("admin")) {
 		  
 		  do {
-			  System.out.println("1.Add new Product /n2.Delete Prodcut \n3.Update product");
+			  System.out.println("1.Add new Product \n2.Delete Prodcut \n3.Update product");
 			  System.out.println("4.Display All \n5.Find by id \n6.Sort by product name");
 			  System.out.println("7.Exit \nChoice : ");
 			  ch = sc.nextInt();
 			  
 			  switch(ch) {
-			  
 				  case 1 ->{
 					  boolean status = pserv.addNewProduct();
 					  if(status)
@@ -45,8 +44,8 @@ public class TestProduct {
 				  }
 				  case 2->{
 					  System.out.println("Enter the product id :");
-					  int id = sc.nextInt();
-					  boolean status = pserv.deleteProduct(id);
+					  int prodid = sc.nextInt();
+					  boolean status = pserv.deleteProduct(prodid);
 					  if(status)
 						  System.out.println("Product deleted successfully..");
 					  else
@@ -61,25 +60,26 @@ public class TestProduct {
 				  }
 				  case 4->{
 					  List<Product> plist = pserv.showAllProduct();
-					  if(plist==null)
-						  System.out.println("Error Occured..");
-					  else
+					  if(plist!=null)
 						  plist.stream().forEach(System.out::println);
+					  else
+						  System.out.println("Error Occured..");
 				  }
 				  case 5->{
 					  pserv.searchProduct();
 				  }
 				  case 6 ->{
-					  System.out.println("Enter Product name ");
-					  String pname = sc.next();
 					  List <Product> plst = pserv.sortByProductName();
+					  if(plst==null)
+						  System.out.println("Error Occured..");
+					  else
+						  plst.stream().forEach(System.out::println);
 				  }
 				  case 7->{
 					  System.out.println("THank You so much for Visiting..");
 					  pserv.closeConnection();
 				  }
 			}
-			  
 		  }while(ch != 7);
 	  }
   }

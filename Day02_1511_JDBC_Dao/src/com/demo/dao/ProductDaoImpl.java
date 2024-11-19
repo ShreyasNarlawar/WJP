@@ -17,11 +17,11 @@ public class ProductDaoImpl  implements ProductDao{
 		try {
 			cnn=DBConnection.getConnection();
 			padd=cnn.prepareStatement("insert into product values (?,?,?)");
-			pdel=cnn.prepareStatement("delete from product where pid=?");
-			pupd=cnn.prepareStatement("update product set pname=? , price=? where pid=?");
+			pdel=cnn.prepareStatement("delete from product where prodid=?");
+			pupd=cnn.prepareStatement("update product set descrip=? , price=? where prodid=?");
 			psel=cnn.prepareStatement("select * from Product");
-			psea=cnn.prepareStatement("select * from product where id=?");
-			psbn=cnn.prepareStatement("select * from Product order by pname asc");
+			psea=cnn.prepareStatement("select * from product where prodid=?");
+			psbn=cnn.prepareStatement("select * from Product order by descrip asc");
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -31,8 +31,8 @@ public class ProductDaoImpl  implements ProductDao{
 	
 	public boolean save(Product P) {
 		try {
-			padd.setInt(1,P.getPid());
-			padd.setString(2, P.getPname());
+			padd.setInt(1,P.getprodid());
+			padd.setString(2, P.getdescrip());
 			padd.setDouble(3, P.getPrice());
 			int res=padd.executeUpdate();
 			if(res>0)
@@ -46,9 +46,9 @@ public class ProductDaoImpl  implements ProductDao{
 		return false;
 	}
 	
-	public boolean delete(int pid) {
+	public boolean delete(int prodid) {
 			try {
-				pdel.setInt(1, pid);
+				pdel.setInt(1, prodid);
 				int res=pdel.executeUpdate();
 				if(res>0)
 					return true;
@@ -63,9 +63,9 @@ public class ProductDaoImpl  implements ProductDao{
 	
 	public boolean updateDetails(Product P) {
 			try {
-				pupd.setString(1, P.getPname());
+				pupd.setString(1, P.getdescrip());
 				pupd.setDouble(2,P.getPrice());
-				pupd.setInt(3, P.getPid());
+				pupd.setInt(3, P.getprodid());
 				int res =pupd.executeUpdate();
 				if(res>0)
 					return true;
@@ -80,26 +80,26 @@ public class ProductDaoImpl  implements ProductDao{
 	
 	public List<Product> showProducts() {
 		List <Product>plt= new ArrayList<Product>();
-		ResultSet rs;
 		try {
-			rs = psel.executeQuery();
+			ResultSet rs = psel.executeQuery();
+			System.out.println( "\tprod id \t Product Name\t\tPrice\n");
 			while(rs.next()) {
 				Product P = new Product(rs.getInt(1),rs.getString(2),rs.getDouble(3));
 				plt.add(P);
 			}
-			if(plt.size()>0)
+			if(plt.size() > 0)
 				return plt;	
-
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return null;
 	}
 	
-	public Product searchProduct(int pid) {
+	public Product searchProduct(int prodid) {
 
 		try {
-			psea.setInt(1,pid);
+			psea.setInt(1,prodid);
 			ResultSet rs = psea.executeQuery();
 			if(rs.next())	
 			return new Product(rs.getInt(1),rs.getString(2),rs.getDouble(3));
@@ -110,7 +110,7 @@ public class ProductDaoImpl  implements ProductDao{
 		return null;
 	}
 	
-	public List<Product> sortByName(String pname) {
+	public List<Product> sortByName(String descrip) {
 	
 		List<Product> plst = new ArrayList<Product>();
 		try {

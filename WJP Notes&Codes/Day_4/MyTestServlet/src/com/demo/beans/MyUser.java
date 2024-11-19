@@ -1,16 +1,17 @@
 package com.demo.beans;
 
-public class User {
+public class MyUser {
 	private String uname;
 	private String passwd;
-	
-	public User() {
+	private String role;
+	public MyUser() {
 		super();
 	}
-	public User(String uname, String passwd) {
+	public MyUser(String uname, String passwd, String role) {
 		super();
 		this.uname = uname;
 		this.passwd = passwd;
+		this.role = role;
 	}
 	public String getUname() {
 		return uname;
@@ -24,7 +25,16 @@ public class User {
 	public void setPasswd(String passwd) {
 		this.passwd = passwd;
 	}
+	public String getRole() {
+		return role;
+	}
+	public void setRole(String role) {
+		this.role = role;
+	}
+	@Override
 	public String toString() {
-		return "User [uname=" + uname + ", passwd=" + passwd + "]";
-	}	
+		return "MyUser [uname=" + uname + ", passwd=" + passwd + ", role=" + role + "]";
+	}
+	
+
 }

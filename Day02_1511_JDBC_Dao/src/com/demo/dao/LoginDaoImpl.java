@@ -13,7 +13,7 @@ public class LoginDaoImpl implements LoginDao{
 	static {
 		cnn=DBConnection.getConnection();
 		try {
-			ps1=cnn.prepareStatement("select uname , role from user where uname = ? and passwd = ?");
+			ps1=cnn.prepareStatement("select username ,role from user where username = ? and password = ?");
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -30,13 +30,11 @@ public class LoginDaoImpl implements LoginDao{
 			ResultSet rs = ps1.executeQuery();
 			
 			if(rs.next())
-				return new User(rs.getString(1), rs.getString(2), rs.getString(3));
+				return new User(rs.getString(1), rs.getString(2));
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
 		return null;
 	}
 }
