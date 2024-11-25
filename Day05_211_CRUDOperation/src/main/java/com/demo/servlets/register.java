@@ -2,6 +2,7 @@ package com.demo.servlets;
 
 import jakarta.servlet.RequestDispatcher;
 
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -15,8 +16,8 @@ import com.demo.beans.User;
 import com.demo.services.LoginService;
 import com.demo.services.LoginServiceImpl;
 
-@WebServlet("/RegisterUser")
-public class RegisterUser extends HttpServlet {
+@WebServlet("/register")
+public class register extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
   

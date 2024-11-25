@@ -1,12 +1,15 @@
 package com.demo.services;
 
+import java.util.List;
+
 import com.demo.beans.Person;
+import com.demo.beans.Product;
 import com.demo.beans.User;
 
 public interface LoginService {
 
 	boolean registerUsers(Person p1, User u1);
 
-	boolean authenticateUser(String username, String password);
+	User authenticateUser(String username, String password);
 
 }

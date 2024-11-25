@@ -4,19 +4,23 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.demo.beans.Person;
+import com.demo.beans.Product;
 import com.demo.beans.User;
 
 public class LoginDaoImpl implements LoginDao {
 	static Connection cnn;
-	static PreparedStatement psel,adduser,details;
+	static PreparedStatement psel,adduser,details ,getall;
 	static {
 		try {
 			cnn = DBConnection.getMyConnection();
 			psel = cnn.prepareStatement("select * from user where username=? password=?");
 			adduser = cnn.prepareStatement("insert into user(username,password,role) values(?,?,?");
 			details = cnn.prepareStatement("insert into person(fname,lname,gender,degree,city,skills) values(?,?,?,?,?,?)");
+			getall = cnn.prepareStatement("select * from product");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -56,10 +60,9 @@ public class LoginDaoImpl implements LoginDao {
 			ResultSet rs = psel.executeQuery();
 			
 			if(rs.next()) {
-				return new User(rs.getString(1).rs.getString(2),rs.getString(3));
+				return new User(rs.getString(1),rs.getString(2),rs.getString(3));
 			}
 			
-			return true;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -67,5 +70,6 @@ public class LoginDaoImpl implements LoginDao {
 		
 		return null;
 	}
+	
 
 }
