@@ -29,7 +29,7 @@
    <td><%=p.getExpdate()%></td>
    <td><%=p.getCid()%></td>
    <td>
-      <a href="editprod?pid=<%=p.getPid()%>">edit</a>/
+      <a href="editprod?pid=<%=p.getPid()%>">edit</a>
       <a href="deletprod?pid=<%=p.getPid()%>">delete</a>
       
    </td>

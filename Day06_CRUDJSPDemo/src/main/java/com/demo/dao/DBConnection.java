@@ -9,18 +9,26 @@ public class DBConnection {
 
 	public static Connection getMyConnection() {
 		// TODO Auto-generated method stub
+		if(cnn == null) {
+			try {
+				DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
+				String url = "jdbc:mysql://192.168.10.127:3306/dac86?useSSL=false";
+				cnn = DriverManager.getConnection(url,"dac86","welcome");
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+			return cnn;
+	}
+	
+	public static void closeMyConnection() {
 		try {
-			DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
-			String url = "jdbc:mysql://192.168.10.127";
-			cnn = DriverManager.getConnection(url,"dac86","welcome");
+			cnn.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
-		
-		return null;
 	}
 
 }

@@ -1,18 +1,18 @@
-package com.demo.services;
+package com.demo.dao;
 
 import java.util.List;
 
 import com.demo.beans.Product;
 
-public interface ProductService {
+public interface ProductDao {
 
 	boolean addNewProduct(Product p);
 
-	boolean deleteById(int pid);
+	boolean removeById(int pid);
 
 	Product getById(int pid);
 
-	List<Product> getAllProducts();
+	List<Product> showAllProducts();
 
 	boolean updateProduct(Product p);
 
