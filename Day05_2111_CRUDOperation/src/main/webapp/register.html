@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	
+	<form action="register" method="post">
+		First Name : <input type="text" placeholder="enter first name" name = "fname" id = "fname">
+		<br>
+		
+		Last Name : <input type="text" placeholder= "enter last name" name = "lname" id= "lname">
+		<br>
+		
+		Gender : <input type="radio" name = "gender" id= "male" value="male">
+		<label for ="male">Male</label>
+		 <input type="radio" name = "gender" id= "female" value="female">
+		<label for ="female">Female</label>
+		<br>
+		
+		Degree :  <input type="radio" name = "degree" id= "B.tech" value="B.tech">
+		<label for ="B.tech">B.Tech</label>
+		<input type="radio" name = "degree" id= "M.tech" value="M.tech">
+		<label for ="M.tech">M.Tech</label>
+		<input type="radio" name = "degree" id= "PHD" value="PHD">
+		<label for ="PHD">PHD</label>
+		<input type="radio" name = "degree" id= "B.Arch" value="B.Arch">
+		<label for ="B.Arch">B.Arch</label>
+		<br>
+		
+		City : <select name= "city" id ="city">
+					<option value = "pune">Pune</option>
+					<option value = "nashik">Nashik</option>
+					<option value = "mumbai">Mumbai</option>
+					<option value = "nagpur">Nagpur</option>
+				</select>
+		<br>
+		
+		Skills : <input type="checkbox" name = "skills" id= "java" value="java">
+		<label for="java">Java</label>
+		<input type="checkbox" name = "skills" id= "cpp" value="cpp">
+		<label for="java">C++</label>
+		<input type="checkbox" name = "skills" id= "C#" value="C#">
+		<label for="java">C#</label>
+		<input type="checkbox" name = "skills" id= "Python" value="python">
+		<label for="java">Python</label>
+		<input type="checkbox" name = "skills" id= "rust" value="Rust">
+		<label for="java">Rust</label>
+		<br>
+		
+		Username : <input type="text" placeholder="username" name="username" id="username">
+		<br>
+		
+		Password : <input type="password" placeholder="password" name="password" id="password">
+		<br>
+		
+		<button type="submit" name= "btn" id= "btn" value="register">Register</button>
+	
+	</form>
+</body>
+</html>

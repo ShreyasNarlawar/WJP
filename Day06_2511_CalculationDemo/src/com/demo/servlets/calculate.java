@@ -20,8 +20,8 @@ public class calculate extends HttpServlet {
 		
 		PrintWriter out = response.getWriter();
 		
-		int num1 = Integer.parseInt(request.getParameter("num1"));
-		int num2 = Integer.parseInt(request.getParameter("num2"));
+		float num1 = Float.parseFloat(request.getParameter("num1"));
+		float num2 = Float.parseFloat(request.getParameter("num2"));
 		
 		String btn = request.getParameter("btn");
 		
@@ -30,12 +30,10 @@ public class calculate extends HttpServlet {
 		case "add":
 			out.println("<h1>Addition : "+(num1+num2)+"</h1>");
 			break;
-		
 		case "sub":
 			out.println("<h1>Subtraction : "+(num1-num2)+"</h1>");
-			
 			break;
-		case "mult":
+		case "multiply":
 			out.println("<h1>Multiplication : "+(num1*num2)+"</h1>");
 			break;
 		case "div":
