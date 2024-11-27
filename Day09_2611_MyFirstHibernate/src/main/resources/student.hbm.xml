@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hibernate-mapping>
+    <class name="com.demo.beans.Student" table="students">
+        <id name="sid">
+            <generator class="assigned"></generator>
+        </id>
+        <property name="sname" type="string" not-null="true"></property>
+        <property name="salary" type="double" column="salary"></property>
+    </class>
+</hibernate-mapping>
