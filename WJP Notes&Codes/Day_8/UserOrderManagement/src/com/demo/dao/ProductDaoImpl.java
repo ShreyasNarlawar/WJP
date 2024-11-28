@@ -20,7 +20,7 @@ static {
 		selCategory=conn.prepareStatement("select * from category");
 		selProducts=conn.prepareStatement("select * from product where cid=?");
 		selById=conn.prepareStatement("select * from product where pid=?");
-	} catch (SQLException e) {
+		} catch (SQLException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- <!DOCTYPE hibernate-configuration PUBLIC 
   "-//Hibernate/Hibernate Configuration DTD//EN" 
-  "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd"> -->
-<!-- Version 8 MySQL hiberante-cfg.xml example for Hibernate 5 -->
+  "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+ --><!-- Version 8 MySQL hiberante-cfg.xml example for Hibernate 5 -->
 <hibernate-configuration>
   <session-factory>
     <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
@@ -19,8 +19,8 @@
     <property name="hbm2ddl.auto">update</property>
     <!-- mapping class" / -->
     <!-- <mapping class="com.demo.beans.Department"/> -->
-    <mapping class="com.demo.beans.Department"/> 
-    <mapping class="com.demo.beans.Employee"/> 
+    <mapping class="com.demo.beans.Student"/> 
+    <mapping class="com.demo.beans.Course"/> 
     <!-- <mapping resource="product.hbm.xml"/>
     <mapping resource="student.hbm.xml"/>  --> 
   </session-factory>
