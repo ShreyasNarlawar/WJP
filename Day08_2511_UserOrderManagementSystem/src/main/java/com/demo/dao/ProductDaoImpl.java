@@ -55,8 +55,8 @@ public class ProductDaoImpl implements ProductDao {
 	
 	@Override
 	public List<Product> getAllProd(int cid) {		
+		List<Product> plist = new ArrayList<>();
 		try {
-			List<Product> plist = new ArrayList<>();
 			selProduct.setInt(1, cid);
 			ResultSet rs  = selProduct.executeQuery();
 			while(rs.next())

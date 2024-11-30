@@ -22,6 +22,7 @@ import jakarta.servlet.http.HttpSession;
 public class AddToCart extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
+	@SuppressWarnings("unchecked")
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String btn = request.getParameter("btn");
 		switch("btn"){
@@ -47,17 +48,16 @@ public class AddToCart extends HttpServlet {
 						
 						System.out.println(clist);
 						session.setAttribute("cart",clist);	
-						RequestDispatcher rd = request.getRequestDispatcher("category");
+						RequestDispatcher rd = request.getRequestDispatcher("categories");
 						rd.forward(request, response);
 						
 					}
 				}
 			case "show"->{
-				RequestDispatcher rd = request.getRequestDispatcher("showprods.jsp");
+				RequestDispatcher rd = request.getRequestDispatcher("showproduct.jsp");
 				rd.forward(request, response);
 			}
 		}
-		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

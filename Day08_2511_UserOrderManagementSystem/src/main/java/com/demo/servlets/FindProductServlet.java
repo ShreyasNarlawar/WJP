@@ -14,7 +14,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import com.demo.beans.Product;
 import com.demo.service.*;
 
-@WebServlet("/findproduct")
+@WebServlet("/getProducts")
 public class FindProductServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -26,7 +26,7 @@ public class FindProductServlet extends HttpServlet {
 		List<Product> plist = pserv.getAllProducts(cid);
 		if(plist != null) {
 			request.setAttribute("plist", plist);
-			RequestDispatcher rd = request.getRequestDispatcher("showProduct.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("showproduct.jsp");
 			rd.forward(request, response);
 		}else {
 			out.println("Please select new Category!! No product Found");

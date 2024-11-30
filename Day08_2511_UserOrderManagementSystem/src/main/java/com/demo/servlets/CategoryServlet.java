@@ -20,7 +20,7 @@ public class CategoryServlet extends HttpServlet {
 			ProductService pserv = new ProductServiceImpl();
 			List<Category> clist = pserv.getAllCategories();
 			request.setAttribute("clist", clist);
-			RequestDispatcher rd = request.getRequestDispatcher("categorypage.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("categories.jsp");
 			rd.forward(request, response);
 	}
 
