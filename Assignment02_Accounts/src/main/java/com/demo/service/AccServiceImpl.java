@@ -1,5 +1,8 @@
 package com.demo.service;
 
+import java.util.List;
+
+import com.demo.beans.Accounts;
 import com.demo.dao.AccDao;
 import com.demo.dao.AccDaoImpl;
 
@@ -26,6 +29,12 @@ public class AccServiceImpl implements AccService {
 	public boolean deleteById(int id) {
 		// TODO Auto-generated method stub
 		return adao.deleteById(id);
+	}
+
+	@Override
+	public List<Accounts> displayAll() {
+		// TODO Auto-generated method stub
+		return adao.getAllAccounts();
 	}
 	
 }
